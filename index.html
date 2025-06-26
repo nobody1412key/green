@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Mech Thailand</title>
+    <style>
+        .news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+.news-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-left: 5px solid #28a745;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+    width: 100%;
+}
+
+.news-card h4 {
+    margin: 0 0 10px;
+    color: #0056b3;
+}
+
+.news-card p {
+    margin: 0;
+    color: #555;
+}
+
+/* เพิ่มลูกเล่นเลื่อนเข้ามาเมื่อแสดงบนจอ */
+.news-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #28a745;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 20px auto;
+            width: 80%;
+        }
+        ul {
+            list-style-position: inside;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>รายการการเเข่งขันทั้งหมดของ Green Mech Thailand</h1>
+    <hr>
+
+    <h3 id="greenmech">Green Mech</h3>
+    <ul>
+        <li>รุ่น Junior</li>
+        <li>รุ่น Senior</li>
+    </ul>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL_ppyVxsMkRDO6JTL6-dFHwWaul7frXEkVw&s" alt="Green Mech Logo">
+
+    <hr>
+
+    <h3 id="robotmission">Robot for Mission</h3>
+    <ul>
+        <li>รุ่น Junior</li>
+        <li>รุ่น Senior</li>
+    </ul>
+    <img src="https://www.worldgreenmech.com/images/news/20180402001_R4M-Logo-RGB-S.png" alt="Robot for Mission Logo" width="240"><hr>
+<h3>ข่าวสารล่าสุด</h3>
+<div class="news-container">
+    <div class="news-card">
+        <h4>Green Mech Thailand 2025 เปิดรับสมัครแล้ว!</h4>
+        <p>เตรียมทีมของคุณให้พร้อมสำหรับการแข่งขันที่ยิ่งใหญ่ที่สุดแห่งปี เริ่มเปิดรับสมัครวันนี้ถึง 31 ก.ค. 2025</p>
+    </div>
+    <div class="news-card">
+        <h4>ทีมตัวแทนไทยคว้าแชมป์เอเชีย!</h4>
+        <p>ทีมเยาวชนไทยสร้างชื่อเสียงระดับนานาชาติ คว้ารางวัลชนะเลิศจากการแข่งขัน Green Mech Asia 2024 ที่ประเทศญี่ปุ่น</p>
+    </div>
+</div>
+
+
+    <footer>
+        <hr>
+        <p>© 2025 Green Mech Thailand. All rights reserved.</p>
+    </footer>
+<script>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // แสดงครั้งเดียวพอ
+            }
+        });
+    });
+
+    document.querySelectorAll('.news-card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+</body>
+</html>
